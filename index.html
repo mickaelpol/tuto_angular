@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app="myApp" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tuto_angular</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body ng-app>
+
+    <div class="bg-primary">
+        <h1 class="text-center text-white text-uppercase">Tuto angular</h1>
+    </div>
+
+    <select ng-model="order">
+        <option value="username">Organiser par nom</option>
+        <option value="content">Organiser par contenu</option>
+    </select>
+    
+    <div ng-controller="CommentsCtrl">
+        <div class="col-lg-6 mx-auto mt-5">
+            <div class="form-group">
+
+                <input class="form-control" type="text" ng-model="query"/>
+
+            </div>
+        </div>
+        <div class="col-lg-6 mx-auto mt-5">
+            <div ng-repeat="comment in comments | filter:{username:query} | orderBy:order ">
+                <p>
+                    <strong>{{comment.username}}</strong><br>
+                    {{comment.content}}
+                    {{comment.email}}
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="assets/js/app.js"></script>
+</body>
+</html>

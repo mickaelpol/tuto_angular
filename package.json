@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/mickaelpol/tuto_angular#readme",
   "dependencies": {
+    "angular": "^1.6.9",
     "bootstrap": "^4.1.0"
   }
 }
